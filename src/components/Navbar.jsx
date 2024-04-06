@@ -5,7 +5,32 @@ import logo from "../../public/Logo.svg";
 import SearchIcon from "@mui/icons-material/Search";
 import { CgLogIn } from "react-icons/cg";
 import { NavLink, useLocation } from "react-router-dom";
+
+import FormControl from "@mui/joy/FormControl";
+import FormLabel from "@mui/joy/FormLabel";
+import Input from "@mui/joy/Input";
+import Modal from "@mui/joy/Modal";
+import ModalDialog from "@mui/joy/ModalDialog";
+import DialogTitle from "@mui/joy/DialogTitle";
+import DialogContent from "@mui/joy/DialogContent";
+import Stack from "@mui/joy/Stack";
+import Add from "@mui/icons-material/Add";
+import { Button } from "@mui/material";
+
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(true);
+
+  const openLoginModal = () => {
+    setIsLoginOpen(true);
+    setOpen(true);
+  };
+
+  const openRegisterModal = () => {
+    setIsLoginOpen(false);
+    setOpen(true);
+  };
+
   const [count, setCount] = useState(false);
 
   const handleSubmit = () => {
@@ -51,18 +76,53 @@ const Navbar = () => {
           </span>
           <button
             type="submit"
-            onClick={handleSubmit}
+            onClick={() => setOpen(true)}
             className={`flex h-[35px] w-[100px] items-center justify-center gap-2 rounded-md bg-[#46A358] font-medium text-white  
               
             `}
           >
-            <NavLink to="/login" className="flex">
-              <span>
-                <CgLogIn />
-              </span>
-              <span>Login</span>
-            </NavLink>
+            <span>
+              <CgLogIn />
+            </span>
+            <span>Login</span>
           </button>
+
+          <Modal open={open} onClose={() => setOpen(false)}>
+            <ModalDialog>
+              <DialogTitle>{isLoginOpen ? "Login" : "Register"}</DialogTitle>
+              <DialogContent>
+                <form>
+                  <Stack spacing={2}>
+                    <FormControl>
+                      <FormLabel>Email</FormLabel>
+                      <Input autoFocus required type="email" />
+                    </FormControl>
+                    <FormControl>
+                      <FormLabel>Password</FormLabel>
+                      <Input required type="password" />
+                    </FormControl>
+                    {!isLoginOpen && (
+                      <FormControl>
+                        <FormLabel>Confirm Password</FormLabel>
+                        <Input required type="password" />
+                      </FormControl>
+                    )}
+                    <Button type="submit">
+                      {isLoginOpen ? "Login" : "Register"}
+                    </Button>
+                    <Button
+                      variant="text"
+                      onClick={() => setIsLoginOpen(!isLoginOpen)}
+                    >
+                      {isLoginOpen
+                        ? "Don't have an account? Register here."
+                        : "Already have an account? Login here."}
+                    </Button>
+                  </Stack>
+                </form>
+              </DialogContent>
+            </ModalDialog>
+          </Modal>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import header from "../../public/headerimg.svg";
-import images from "../../public/image  9.jpg";
-import images2 from "../../public/image  1.jpg";
+import images from "../../public/download.jpg";
+
 import {
   Navigation,
   Pagination,
@@ -84,7 +84,11 @@ const Header = () => {
               </button>
             </div>
             <div className="h-full w-[50%]">
-              <img src={images} alt="img" className=" h-full w-full" />
+              <img
+                src="https://st5.depositphotos.com/35914836/64906/i/450/depositphotos_649066108-stock-photo-pink-flowers-park-spring-bloosom.jpg"
+                alt="img"
+                className=" h-full w-full"
+              />
             </div>
           </div>{" "}
         </SwiperSlide>
@@ -108,7 +112,11 @@ const Header = () => {
               </button>
             </div>
             <div className="h-full w-[50%]">
-              <img src={images2} alt="img" className=" h-full w-full" />
+              <img
+                src="https://i.pinimg.com/474x/db/f8/85/dbf8854b875c08f25dbd005734bbce83.jpg"
+                alt="img"
+                className=" h-full w-full"
+              />
             </div>
           </div>{" "}
         </SwiperSlide>

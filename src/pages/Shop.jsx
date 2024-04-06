@@ -10,6 +10,7 @@ const Shop = () => {
   return (
     <div>
       <Navbar />
+
       <NavLin />
       <Article />
       <BasicTabs />
