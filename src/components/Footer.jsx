@@ -9,6 +9,7 @@ import twitter from "../../public/Twitter.svg";
 import linkedin from "../../public/Linkedin.svg";
 import pay from "../../public/image 16.svg";
 import union from "../../public/Union.svg";
+import { NavLink } from "react-router-dom";
 
 const Box = ({ image, title, subtitle, data }) => {
   return (
@@ -69,7 +70,7 @@ const Footer = () => {
                 className="h-10 w-[269px] rounded-l-md bg-[rgb(255,255,255)] p-3"
               />
               <button className="h-10 w-[85px] rounded-r-md bg-[#46A358] text-[18px] font-bold leading-4 text-white">
-                Join
+                <NavLink to="/menu">Join</NavLink>
               </button>
             </div>
             <p className=" h-[89px] w-[354px] text-[14px] font-normal leading-6">

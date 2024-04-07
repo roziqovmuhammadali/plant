@@ -4,18 +4,15 @@ import LocalGroceryStoreIcon from "@mui/icons-material/LocalGroceryStore";
 import logo from "../../public/Logo.svg";
 import SearchIcon from "@mui/icons-material/Search";
 import { CgLogIn } from "react-icons/cg";
-import { NavLink, useLocation } from "react-router-dom";
 
 import FormControl from "@mui/joy/FormControl";
 import FormLabel from "@mui/joy/FormLabel";
 import Input from "@mui/joy/Input";
 import Modal from "@mui/joy/Modal";
 import ModalDialog from "@mui/joy/ModalDialog";
-import DialogTitle from "@mui/joy/DialogTitle";
 import DialogContent from "@mui/joy/DialogContent";
 import Stack from "@mui/joy/Stack";
-import Add from "@mui/icons-material/Add";
-import { Button } from "@mui/material";
+import { NavLink, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -121,7 +118,11 @@ const Navbar = () => {
                       </p>
                     </div>
                     <button className="h-[40px] w-full rounded-md bg-green-600 font-bold text-white">
-                      {isLoginOpen ? "Login" : "Register"}
+                      {isLoginOpen ? (
+                        "Login"
+                      ) : (
+                        <NavLink to="/menu">Register</NavLink>
+                      )}
                     </button>
                   </Stack>
                 </form>
