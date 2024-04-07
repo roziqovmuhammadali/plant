@@ -1,0 +1,70 @@
+{
+  "plants": [
+    {
+      "id": 1,
+      "titile": "Cactus & Succulent",
+      "price": 169.0,
+      "images": "../public/01.svg"
+    },
+    {
+      "id": 2,
+      "title": "Succulents for Your",
+      "price": 101.0,
+      "images": "../public/02.svg"
+    },
+    {
+      "id": 3,
+      "title": "Barberton Daisy",
+      "price": 169.0,
+      "images": "../public/image  1.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Angel Wing Begonia",
+      "price": 139.0,
+      "images": "../public/image  2.jpg"
+    },
+    {
+      "id": 5,
+      "title": "African Violet",
+      "price": 199.0,
+      "images": "../public/image  3.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Beach Spider Lily",
+      "price": 129.0,
+      "images": "../public/image  4.png"
+    },
+    {
+      "id": 7,
+      "title": "Blushing Bromeliad",
+      "price": 138.0,
+      "images": "../public/image  5.jpg"
+    },
+    {
+      "id": 8,
+      "title": "Aluminum Plant",
+      "price": 179.0,
+      "images": "../public/image  6.jpg"
+    },
+    {
+      "id": 9,
+      "title": "Bird's Nest Fern",
+      "price": 99.0,
+      "images": "../public/image  7.jpg"
+    },
+    {
+      "id": 10,
+      "title": "Broadleaf Lady Palm",
+      "price": 59.0,
+      "images": "../public/image  8.jpg"
+    },
+    {
+      "id": 11,
+      "title": "Chinese Evergreen",
+      "price": 39.0,
+      "images": "../public/image  9.jpg"
+    }
+  ]
+}
