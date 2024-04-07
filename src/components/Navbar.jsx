@@ -89,7 +89,15 @@ const Navbar = () => {
 
           <Modal open={open} onClose={() => setOpen(false)}>
             <ModalDialog>
-              <DialogTitle>{isLoginOpen ? "Login" : "Register"}</DialogTitle>
+              <div className="flex w-full justify-center gap-2 font-bold">
+                <span>{isLoginOpen ? "Login" : "Register"}</span>/
+                <button
+                  variant="text"
+                  onClick={() => setIsLoginOpen(!isLoginOpen)}
+                >
+                  {isLoginOpen ? "Register" : " Login"}
+                </button>
+              </div>
               <DialogContent>
                 <form>
                   <Stack spacing={2}>
@@ -107,17 +115,14 @@ const Navbar = () => {
                         <Input required type="password" />
                       </FormControl>
                     )}
-                    <Button type="submit">
+                    <div className="w-full text-end">
+                      <p className="text-[12px] font-normal text-[#46A358]">
+                        Forgot Password?
+                      </p>
+                    </div>
+                    <button className="h-[40px] w-full rounded-md bg-green-600 font-bold text-white">
                       {isLoginOpen ? "Login" : "Register"}
-                    </Button>
-                    <Button
-                      variant="text"
-                      onClick={() => setIsLoginOpen(!isLoginOpen)}
-                    >
-                      {isLoginOpen
-                        ? "Don't have an account? Register here."
-                        : "Already have an account? Login here."}
-                    </Button>
+                    </button>
                   </Stack>
                 </form>
               </DialogContent>
