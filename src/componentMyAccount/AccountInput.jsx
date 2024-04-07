@@ -3,11 +3,7 @@ import Modal from "@mui/joy/Modal";
 import ModalClose from "@mui/joy/ModalClose";
 import Typography from "@mui/joy/Typography";
 import Sheet from "@mui/joy/Sheet";
-import pay from "../../public/image 16.svg";
 import thank from "../../public/thankyou.png";
-import images1 from "../../public/image  1.jpg";
-import images2 from "../../public/image  2.jpg";
-import images3 from "../../public/image  3.jpg";
 
 const AccountInput = () => {
   const [formData, setFormData] = useState({
@@ -42,12 +38,22 @@ const AccountInput = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} className="flex w-full px-[100px]">
-        <div className=" w-[70%]">
-          <h1 className=" pb-7 text-[17px] font-bold leading-4 text-[#3D3D3D]">
-            Billing Address
-          </h1>
-          <div className="grid grid-cols-2 gap-6">
+      <form onSubmit={handleSubmit} className="flex w-full px-[80px]">
+        <div>
+          <div className="flex w-full items-center justify-between">
+            <div className=" w-[100%]">
+              <h1 className=" pb-2 text-[17px] font-bold leading-4 text-[#3D3D3D]">
+                Billing Address
+              </h1>
+              <p className="pb-7 text-[13px] text-[#727272]">
+                The following addresses will be used on the checkout page by
+                default.
+              </p>
+            </div>
+            <p className="text-[14px] font-medium text-[#46A358]">Add</p>
+          </div>
+
+          <div className="grid grid-cols-2 justify-between gap-6">
             <div className="mb-4">
               <label
                 htmlFor="firstName"
@@ -242,43 +248,76 @@ const AccountInput = () => {
                 />
               </div>
             </div>
-            <div className="flex items-center">
-              <input
-                type="checkbox"
-                id="shipToDifferentAddress"
-                name="shipToDifferentAddress"
-                checked={formData.shipToDifferentAddress}
-                onChange={handleChange}
-                className="mr-2"
-              />
-              <label
-                htmlFor="shipToDifferentAddress"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Ship to a different address?
-              </label>
-            </div>
-            <div className="col-span-2">
-              <label
-                htmlFor="orderNotes"
-                className="block pb-2 text-sm font-medium text-gray-700"
-              >
-                Order notes (optional)
-              </label>
-              <textarea
-                id="orderNotes"
-                name="orderNotes"
-                value={formData.orderNotes}
-                onChange={handleChange}
-                placeholder="Order notes (optional)"
-                className="w-[50%] rounded-lg border p-3"
-                rows="4"
-              />
-            </div>
           </div>
-          <button className="w-full rounded-lg bg-[#46A358] px-4 py-2 font-bold text-white">
-            Place Order
+          <button
+            onClick={() => setOpen(true)}
+            className="my-7 h-[40px] w-[131px] rounded-md bg-[#46A358] font-bold text-white"
+          >
+            Save Address
           </button>
+          <Modal
+            aria-labelledby="modal-title"
+            aria-describedby="modal-desc"
+            open={open}
+            onClose={() => setOpen(false)}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Sheet
+              variant="outlined"
+              sx={{
+                maxWidth: 578,
+                borderRadius: "md",
+
+                boxShadow: "lg",
+              }}
+            >
+              <ModalClose variant="plain" sx={{ m: 1 }} />
+
+              <Typography id="modal-desc" textColor="text.tertiary">
+                <div className=" w-[468px]">
+                  <div className=" flex w-full flex-col items-center justify-center bg-[#46A3580F] py-5">
+                    <img src={thank} alt="logo" />
+                    <p className=" mt-4 text-[16px] font-bold text-[#727272]">
+                      Thank you very much
+                    </p>
+                  </div>
+                </div>
+              </Typography>
+            </Sheet>
+          </Modal>
+          <div className="w-full">
+            <div className="flex w-full items-center justify-between">
+              <h1 className="text-[16px] font-medium text-[#3D3D3D]">
+                Shipping Address
+              </h1>
+              <span className="flex gap-4">
+                <div className="flex items-center">
+                  <input
+                    type="checkbox"
+                    id="shipToDifferentAddress"
+                    name="shipToDifferentAddress"
+                    checked={formData.shipToDifferentAddress}
+                    onChange={handleChange}
+                    className="mr-2"
+                  />
+                  <label
+                    htmlFor="shipToDifferentAddress"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Same as billing address
+                  </label>
+                </div>
+                <p className="text-[14px] font-medium text-[#46A358]">Add</p>
+              </span>
+            </div>
+            <p className="text-[12px] font-normal text-[#727272]">
+              You have not set up this type of address yet.
+            </p>
+          </div>
         </div>
       </form>
     </div>

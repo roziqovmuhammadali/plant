@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import AccountInput from "../componentMyAccount/AccountInput";
+import Navbar from "../components/Navbar";
 
 const Menu = () => {
   const [activeItem, setActiveItem] = useState("Account Details");
@@ -21,66 +22,52 @@ const Menu = () => {
   };
 
   return (
-    <div className="flex flex-col bg-gray-200 p-4">
-      <div className="flex-col space-x-4">
-        <div
-          onClick={() => handleClick("Account Details")}
-          className={`cursor-pointer text-gray-600 hover:text-gray-800 ${
-            activeItem === "Account Details" ? "font-semibold" : ""
-          } ${activeItem === "Account Details" ? "border-b-2 border-gray-800" : ""}`}
-        >
-          Account Details
+    <div>
+      <Navbar />
+      <div className="p-10">
+        <div className="flex justify-around">
+          <div className="h-[400px] w-[293px] flex-col bg-[#FBFBFB] p-12 text-[19px] leading-[45px]">
+            <div
+              onClick={() => handleClick("Account Details")}
+              className={`cursor-pointer text-gray-600 hover:text-gray-800 ${
+                activeItem === "Account Details" ? "bg-white font-semibold" : ""
+              } ${activeItem === "Account Details" ? "border-b-2 border-gray-800" : ""}`}
+            >
+              Account Details
+            </div>
+            <div
+              onClick={() => handleClick("Address")}
+              className={`cursor-pointer text-gray-600 hover:text-gray-800 ${
+                activeItem === "Address" ? "bg-white font-semibold" : ""
+              } ${activeItem === "Address" ? "border-b-2 border-gray-800" : ""}`}
+            >
+              Address
+            </div>
+            <div>Orders</div>
+            <div>Wishlist</div>
+            <div>Reports</div>
+            <div>Downloads</div>
+            <div>Support</div>
+          </div>
+          <div className="">{renderTabContent()}</div>
         </div>
-        <div
-          onClick={() => handleClick("Address")}
-          className={`cursor-pointer text-gray-600 hover:text-gray-800 ${
-            activeItem === "Address" ? "font-semibold" : ""
-          } ${activeItem === "Address" ? "border-b-2 border-gray-800" : ""}`}
-        >
-          Address
-        </div>
-        <div
-          onClick={() => handleClick("Orders")}
-          className={`cursor-pointer text-gray-600 hover:text-gray-800 ${
-            activeItem === "Orders" ? "font-semibold" : ""
-          } ${activeItem === "Orders" ? "border-b-2 border-gray-800" : ""}`}
-        >
-          Orders
-        </div>
-        <div
-          onClick={() => handleClick("Wishlist")}
-          className={`cursor-pointer text-gray-600 hover:text-gray-800 ${
-            activeItem === "Wishlist" ? "font-semibold" : ""
-          } ${activeItem === "Wishlist" ? "border-b-2 border-gray-800" : ""}`}
-        >
-          Wishlist
-        </div>
-        <div
-          onClick={() => handleClick("Reports")}
-          className={`cursor-pointer text-gray-600 hover:text-gray-800 ${
-            activeItem === "Reports" ? "font-semibold" : ""
-          } ${activeItem === "Reports" ? "border-b-2 border-gray-800" : ""}`}
-        >
-          Reports
-        </div>
-        <div>Downloads</div>
-        <div>Support</div>
       </div>
-      <div className="mt-4">{renderTabContent()}</div>
     </div>
   );
 };
 
 const AccountDetails = () => {
-  return <div>Account Details Component</div>;
+  return (
+    <div className=" w-full   bg-white">
+      <AccountInput />
+    </div>
+  );
 };
 
 const Address = () => {
   return (
-    <div className="flex w-full justify-end  bg-white">
-      <div className="flex w-[full] items-center justify-between">
-        <AccountInput />
-      </div>
+    <div className=" w-full   bg-white">
+      <AccountInput />
     </div>
   );
 };
